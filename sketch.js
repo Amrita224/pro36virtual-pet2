@@ -24,7 +24,7 @@ function setup() {
   foodStock.on("value", readStock);
 
   createCanvas(800, 700);
-  dog = createSprite(400, 400, 50, 50);
+  dog = createSprite(600, 400, 50, 50);
   dog.addImage(dogImg1);
   dog.scale = 0.2;
 
@@ -48,7 +48,7 @@ function draw() {
   //add styles here
 
   // read foodStock from firebase
-  fedTime=database.ref('fedTime');
+  fedTime=database.ref('FeedTime');
   fedTime.on('value',function(data){
     lasFeed=data.val();
   })
@@ -60,7 +60,7 @@ function draw() {
   fill(255,255,254);
   textSize(15);
   if(lasFeed>=12){
-    text("Last Feed :"+lasFeed%12 + " PM",350,30);
+    text("Last Feed : "+lasFeed%12 + " PM",350,30);
   }else{
     if(lasFeed==0){
       text("Last Feed : 12 AM",350,30);
